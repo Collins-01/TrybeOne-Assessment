@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trybeone_assessment/core/data/remote/news/news.dart';
-// import 'package:trybeone_assessment/core/injection_container.dart';
+import 'package:trybeone_assessment/core/independent_services.dart';
 import 'package:trybeone_assessment/presentation/presentation.dart';
-// import 'package:trybeone_assessment/presentation/views/viewmodels.dart';
+import 'package:trybeone_assessment/presentation/views/viewmodels.dart';
 import 'navigations/navigations.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        Provider<NewsService>.value(
-          value: NewsServiceImpl(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => HomeViewModel(
-            Provider.of<NewsService>(context, listen: false),
-          ),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => CreateNewsViewModel(
-            Provider.of<NewsService>(context, listen: false),
-          ),
-        ),
+        ...independentServices,
+        ...viewModelProviders,
       ],
       child: const MyApp(),
     ),

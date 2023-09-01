@@ -43,6 +43,7 @@ dependencies:
   timeago: ^3.5.0 #converts time to moments ago
   shimmer: ^3.0.0 #nice ui loader for loading images
   cached_network_image: ^3.2.3 #image caching
+  socket_io_client: ^2.0.3+1
 
 dev_dependencies:
   flutter_test:

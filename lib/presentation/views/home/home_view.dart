@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trybeone_assessment/core/data/remote/news/news_interface.dart';
-import 'package:trybeone_assessment/extensions/context_extension.dart';
+import 'package:trybeone_assessment/core/data/remote/chat/chat.dart';
+import 'package:trybeone_assessment/core/data/remote/news/news.dart';
+import 'package:trybeone_assessment/extensions/extensions.dart';
 import 'package:trybeone_assessment/navigations/navigations.dart';
 import 'package:trybeone_assessment/presentation/views/home/viewmodels/home_viewmodel.dart';
 import 'package:trybeone_assessment/presentation/views/view_states/base_view.dart';
@@ -15,10 +16,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<HomeViewModel>(
-      onModelReady: (vm) => vm.fetchNews(),
+      onModelReady: (vm) => vm.onModelReady(),
       model: HomeViewModel(
         // NewsServiceImpl(),
-        Provider.of<NewsService>(context, listen: false),
+        newsService: Provider.of<NewsService>(context, listen: false),
+        chatService: Provider.of<ChatService>(context, listen: false),
       ),
       builder: (context, vm, child) {
         return SafeArea(
@@ -26,6 +28,15 @@ class HomeView extends StatelessWidget {
               appBar: AppBar(
                 title: AppText.heading3("Hello Ann!"),
                 actions: [
+                  ValueListenableBuilder(
+                    valueListenable: vm.connectionStatus,
+                    builder: (context, status, child) => AppText.body(
+                      status.name,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   TextButton(
                     onPressed: () {
                       NavigationService.instance

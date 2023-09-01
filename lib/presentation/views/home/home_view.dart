@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trybeone_assessment/core/data/remote/news/news_interface.dart';
-import 'package:trybeone_assessment/extensions/extensions.dart';
+import 'package:trybeone_assessment/extensions/context_extension.dart';
 import 'package:trybeone_assessment/navigations/navigations.dart';
 import 'package:trybeone_assessment/presentation/views/home/viewmodels/home_viewmodel.dart';
 import 'package:trybeone_assessment/presentation/views/view_states/base_view.dart';
@@ -58,21 +58,16 @@ class HomeView extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Container(
+                                              AppImage(
+                                                url: newsList[index].image,
+                                                fit: BoxFit.cover,
+                                                width: context.getDeviceWidth,
                                                 height:
                                                     context.getDeviceHeight *
                                                         0.26,
-                                                width: context.getDeviceWidth,
-                                                decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(
-                                                        newsList[index].image,
-                                                      )),
-                                                  borderRadius:
-                                                      const BorderRadius.all(
-                                                    Radius.circular(8),
-                                                  ),
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                  Radius.circular(8),
                                                 ),
                                               ),
                                               const SizedBox(

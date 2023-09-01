@@ -11,18 +11,19 @@ class AppLongButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        height: 55,
-        width: context.getDeviceWidth,
-        decoration: BoxDecoration(
-          color: AppColors.primaryColor,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(8),
+    return SizedBox(
+      height: 55,
+      width: context.getDeviceWidth,
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primaryColor,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(8),
+            ),
           ),
         ),
-        alignment: Alignment.center,
         child: AppText.bodyLarge(
           title,
           color: Colors.white,

@@ -6,7 +6,7 @@ import 'package:trybeone_assessment/core/models/dtos/create_news.dto.dart';
 
 class NewsServiceImpl extends NewsService {
   final ValueNotifier<List<News>> _newsList = ValueNotifier([]);
-  final _delay = const Duration(seconds: 2);
+  final _delay = const Duration(seconds: 4);
   final _faker = Faker();
   @override
   Future<News> createNews(CreateNewsDTO dto) async {
@@ -20,8 +20,7 @@ class NewsServiceImpl extends NewsService {
       author: _faker.person.name(),
     );
     await Future.delayed(_delay);
-    _newsList.value.insert(0, news);
-
+    _newsList.value = [news, ..._newsList.value];
     return news;
   }
 

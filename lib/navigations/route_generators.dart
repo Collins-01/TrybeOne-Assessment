@@ -13,7 +13,7 @@ class RouteGenerators {
 
       case NavigationRoutes.CREATE_NEWS:
         return MaterialPageRoute(
-          builder: (_) => const CreateNewsView(),
+          builder: (_) => CreateNewsView(),
         );
       // case NavigationRoutes.SPLASH_SCREEN:
       //   return MaterialPageRoute(

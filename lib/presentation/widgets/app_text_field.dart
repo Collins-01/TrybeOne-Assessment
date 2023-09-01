@@ -12,6 +12,7 @@ class AppTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatters;
+  final int? maxLines;
   const AppTextField({
     super.key,
     required this.controller,
@@ -21,6 +22,7 @@ class AppTextField extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.inputFormatters,
+    this.maxLines,
   });
 
   @override
@@ -43,19 +45,20 @@ class _AppTextFieldState extends State<AppTextField> {
           const SizedBox(
             height: 8,
           ),
-          Container(
-            height: 50,
+          SizedBox(
+            // height: 50,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(5),
-              ),
-              border: Border.all(
-                color: AppColors.textColor,
-                width: 0.3,
-              ),
-            ),
+            // decoration: BoxDecoration(
+            //   borderRadius: const BorderRadius.all(
+            //     Radius.circular(5),
+            //   ),
+            //   border: Border.all(
+            //     color: AppColors.textColor,
+            //     width: 0.3,
+            //   ),
+            // ),
             child: TextFormField(
+              maxLines: widget.maxLines,
               inputFormatters: widget.inputFormatters,
               keyboardType: widget.keyboardType,
               validator: widget.validator,
@@ -63,7 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
               controller: widget.controller,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.only(top: 17, left: 10),
-                border: InputBorder.none,
+                border: const OutlineInputBorder(),
                 hintText: widget.hintText,
                 suffixIcon: !widget.isPassword
                     ? const SizedBox.shrink()

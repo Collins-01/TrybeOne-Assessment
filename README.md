@@ -1,16 +1,16 @@
-# trybeone_assessment
+# Assessment
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+1. ![Image 01](screenshots/image01.jpeg)
+   - Create News Page
 
-A few resources to get you started if this is your first Flutter project:
+2. ![Image 02](screenshots/image02.jpeg)
+   - SplashScreen Page
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. ![Image 03](screenshots/image03.jpeg)
+   - No News Page
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+4. ![Image 04](screenshots/image04.jpeg)
+   - News Feed
+

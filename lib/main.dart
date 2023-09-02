@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      home: const SplashScreenView(),
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: RouteGenerators.generateRoutes,
     );

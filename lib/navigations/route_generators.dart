@@ -15,10 +15,10 @@ class RouteGenerators {
         return MaterialPageRoute(
           builder: (_) => CreateNewsView(),
         );
-      // case NavigationRoutes.SPLASH_SCREEN:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const SplashScreenView(),
-      //   );
+      case NavigationRoutes.SPLASH_SCREEN:
+        return MaterialPageRoute(
+          builder: (_) => const SplashScreenView(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
